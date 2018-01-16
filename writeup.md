@@ -216,4 +216,5 @@ We could apply a bunch of different improvements:
 5) when the histogram method fails for the windows method, we could use convolutions. Also applying a adaptive gradient and color threshold could be interesting. That is tuning the threshold at each step by finding the best one from n-previous success frames.
 
 ### Experiments
-I have also played with the LUV and LAB color channel on a image extracted from the challenge video as well as added a simple distance check between lines in the sanity check. These can be found under the section *Challenge video*
+I have also played with the LUV and LAB color channel on a image extracted from the challenge video as well as added a simple distance check between lines in the sanity check. These can be found under the section *Challenge video*. Another interesting idea is to use the distance check as a lines correction:
+- taking those points from the computed polynomial eqations which pass the distance check and correct those points which doesn't pass by applying the mean distance found in previous steps in order to keep the same curvature.
