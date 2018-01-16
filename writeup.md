@@ -130,12 +130,12 @@ I verified that my perspective transform was working as expected by drawing the 
 After a lot of tuning and experiments, I finally come with a `LaneDetector` class performing the road lanes detection. This class contains 2 instances of a `Line` class that helps to identify the left and right lane lines. 
 After the preprocessing steps (color extraction, color/gradient thresholds, undistortions, perspective transformation), I then do the following:
 1) we already have 2 detected lanes from the previous step, then I use the previously found windows to search the lines in the next frmame within a margin around the previous line position
-2) if we didn't have any previously detected lines, we apply the windows search method bby using the peaks detection in the histogram. Here, I have made small tune, so that we check for the left peak in the first 1/3 of the width of the image, and for the right lane, we look for a peak in the third part of the width of the image.
+2) if we didn't have any previously detected lines, we apply the windows search method by using the peaks detection in the histogram. Here, I have made small tune, so that we check for the left peak in the first 1/3 of the width of the image, and for the right lane, we look for a peak in the third part of the width of the image.
 This helps as to fix problems like the following:
 
 ![alt text][image9]
 
-3) In the next step, I compute the radius of curvature for the left and right lanes and then perform a simple sanity test by comparing if the found radius of curvature are similare enough. I consider them to be similar if the difference is no more than 1500meters.
+3) In the next step, I compute the radius of curvature for the left and right lanes and then perform a simple sanity test by comparing if the found radius of curvature for the left and right lanes are similare enough. I consider them to be similar if the difference is no more than 1500 meters.
 4) If the sanity check passes, then we consider the lines to be detected and draw them on the image.
 
 ![alt text][image10]
@@ -173,13 +173,14 @@ self.xm_per_pix = 3.7/1280 # meters per pixel in x dimension
  ```
 
 
- This code can be found inside the `LaneDetector` class. It is important to note that a bbig value signify that the lanes are almost vertical, so that the radius strives for infinity.
+ This code can be found inside the `LaneDetector` class. It is important to note that a big value signify that the lanes are almost vertical, so that the radius strives for infinity.
 
  For the position of the vehicle, I have taken the bottom x coordinates of the left and right curves, reprsenting the road lane lines, then their center and after that, I have compared it to the center of the image as follow:
 
  ```python
-
- offset = midpoint_lanes - midpoint_image
+midpoint_lanes = (self.left_line.current_fit[-1] + self.right_line.current_fit[-1]) / 2
+...
+offset = midpoint_lanes - midpoint_image
  ```
  I have then converted it to meters using the `xm_per_pix` scaling factor used to compute the radius of curvature. A negative value of the offset signifying that the car is positioned left compared to the center and a positive value - right to the center.
 
