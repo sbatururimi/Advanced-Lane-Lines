@@ -214,3 +214,6 @@ We could apply a bunch of different improvements:
 3) checking the reasonability of the radius of curvature. A big value, signifying that lanes are almost vertical. We could check that by using the bird-eye view image and then averaging the angle of each lane.
 4) checking whether lanes are parallel by using a similar appraoch to 1), i.e by taking 2 poinst on each lane, forming a line and comparing them to line, formed by the 2 points of the other lanes. If the angle between them is within a certain angle, we should consider the lane lines as parallel and we then repeat this step for several points after some intervale on each lane(no necessity to check each 2 points, we can average that).
 5) when the histogram method fails for the windows method, we could use convolutions. Also applying a adaptive gradient and color threshold could be interesting. That is tuning the threshold at each step by finding the best one from n-previous success frames.
+
+### Experiments
+I have also played with the LUV and LAB color channel on a image extracted from the challenge video as well as added a simple distance check between lines in the sanity check. These can be found under the section *Challenge video*
