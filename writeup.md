@@ -76,7 +76,7 @@ I used a combination of color and gradient thresholds to generate a binary image
 
 ![alt text][image3]
 
-To achieve that I have a comination of color extraction and gradiend thresholds. 
+To achieve that I have a combination of color extraction and gradiend thresholds. 
 1) For the color extraction, I have converted the image to the HLS space and then applied a threshold on each channel to retrieve white and yellow lines.
 ```
 def hls_select_color_lines(img):
@@ -97,6 +97,7 @@ def hls_select_color_lines(img):
  *Note*  This step was taken from my previous Lane-Lines detection project.
 
  2) For the gradient threshold, I have used the Sobel operator for the x orientation in the HLS color space, particulary by applying the gradient operator to the L channel. Here's an example of my output for this step:
+ 
  ![alt text][image7]
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
