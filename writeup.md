@@ -26,7 +26,7 @@ The goals / steps of this project are the following:
 [image6]: ./output_transformations/range_yellow.jpg "Yellow range"
 [image7]: ./output_images/color_gradient_thresholds.jpg "Gradient threshold"
 [image8]: ./output_images/perspective_transform.jpg 'Perspective transform'
-[image9]: ./output_images_challenge/failed_sliding_window_project_image_1 "Failed line finding"
+[image9]: ./output_images_challenge/failed_sliding_window_project_image_1.jpg "Failed line finding"
 [image10]: ./output_images/map_line.jpg "Road lane lines"
 
 <!-- [image4]: ./examples/warped_straight_lines.jpg "Warp Example"
@@ -134,6 +134,7 @@ After the preprocessing steps (color extraction, color/gradient thresholds, undi
 This helps as to fix problems like the following:
 
 ![alt text][image9]
+
 3) In the next step, I compute the radius of curvature for the left and right lanes and then perform a simple sanity test by comparing if the found radius of curvature are similare enough. I consider them to be similar if the difference is no more than 1500meters.
 4) If the sanity check passes, then we consider the lines to be detected and draw them on the image.
 
