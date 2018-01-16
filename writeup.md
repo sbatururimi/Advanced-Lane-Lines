@@ -24,10 +24,10 @@ The goals / steps of this project are the following:
 [image4]: ./output_transformations/yellow.jpg "Yellow"
 [image5]: ./output_transformations/range_white.jpg "White range"
 [image6]: ./output_transformations/range_yellow.jpg "Yellow range"
-[image7]: ./output_transformations/color_gradient_thresholds.jpg 'Gradient threshold'
-[image8]: ./output_transformations/perspective_transform.jpg 'Perspective transform'
-[image9]: ./output_transformations/failed_sliding_window_project_image_1 "Failed line finding"
-[image10]: ./output_transformations/map_line.jpg "Road lane lines"
+[image7]: ./output_images/color_gradient_thresholds.jpg "Gradient threshold"
+[image8]: ./output_images/perspective_transform.jpg 'Perspective transform'
+[image9]: ./output_images_challenge/failed_sliding_window_project_image_1 "Failed line finding"
+[image10]: ./output_images/map_line.jpg "Road lane lines"
 
 <!-- [image4]: ./examples/warped_straight_lines.jpg "Warp Example"
 [image5]: ./examples/color_fit_lines.jpg "Fit Visual"
@@ -97,7 +97,7 @@ def hls_select_color_lines(img):
  *Note*  This step was taken from my previous Lane-Lines detection project.
 
  2) For the gradient threshold, I have used the Sobel operator for the x orientation in the HLS color space, particulary by applying the gradient operator to the L channel. Here's an example of my output for this step:
- 
+
  ![alt text][image7]
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
